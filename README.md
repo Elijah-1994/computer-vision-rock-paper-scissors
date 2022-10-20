@@ -72,5 +72,5 @@ Code improvements
 
 in order to make the code readibility the class to initialize the class and function play_game call are wrapped in a def game loop function.
 
-To make the script more usear friendly a additonal lines are written at the start of the code which asks for the users name and explains to the user how to play the game. The user score and user score are also displayed throughout the game the so the user is aware.
+To make the script more usear friendly a additonal lines are written at the start of the code which explains to the user how to play the game. The user score and user score are also displayed throughout the game the so the user is aware.
 
