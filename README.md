@@ -18,5 +18,6 @@ The conda create -n command was inputted into the bash terminal on VSCode to cre
 
 pip list > requirments.txt and conda env export > env.yaml commands were inputted into the bash terminal to copy over the required libaries and dependencies. These file enables any other user that wants to use your computer to easily install these exact dependencies.
 
+Milestone 3 - Create a Rock
 
 
