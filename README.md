@@ -68,5 +68,9 @@ Class Computer_Vision!
 
 In order to repeat the game until the user or computer wins 3 games, each win would need to be stored and itterated within a variable. In order to do this the functions for the game were wrapped in a class Computer_Vision. The def __init__ method was created in order to initialize the two parameters which are computer_wins and user_wins. The parameters store and itterate the user and computer score. A series of if,elif statments were created in the play_game function which control the user and computer points. If the return variable from the get_winner function is 'Computer wins' then the computer_wins variable is increased by 1 and vise versa for the user wins. An additional set of if,elif statments were created in the play_game function which return a statement on who wins the game if the computer_wins or user_wins reaches 3 points. This stops the while loop in the play_game function and ends the game.
 
-A
+Code improvements
+
+in order to make the code readibility the class to initialize the class and function play_game call are wrapped in a def game loop function.
+
+To make the script more usear friendly a additonal lines are written at the start of the code which asks for the users name and explains to the user how to play the game. The user score and user score are also displayed throughout the game the so the user is aware.
 
