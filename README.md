@@ -4,7 +4,10 @@ This file contains a project called computer vision rock paper scissors where th
 
 Milstone 1 - create the computer vision system
 
-I went onto Teachable-Machine to create model. This consisted of creating four classes wich are rock,paper,scicors and nothing. for each class I took roughly 300 images to represent each class. for the nothing class I took photos of myself.
+Teachable-Machine was used to creat the model. This consisted of creating four classes which represent Rock,Paper,Scissors and Nothing. for each class I took roughly 1000 images to build the model.
 
-Once I took all the images in each class I click build model and downloaded the model from the "Tensorflow" tab. the model is labbeled keras_model.h5 and contains a labels.txt file which contains the created classess.
+Once all the images were taken the model was trained and downloaded from the "Tensorflow" tab. the model is labbeled as "keras_model.h5" and contains a "labels.txt" file which contains the classes with the corresponding index.
 
+![](Images/Milestone_1.PNG)
+
+Milstone 2 - 

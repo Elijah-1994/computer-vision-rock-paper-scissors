@@ -8,7 +8,9 @@ model = load_model('keras_model.h5')
 cap = cv2.VideoCapture(0)
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 choices = ["Rock","Papper","Scissors","nothing"]
-
+print ("welcome to the computer vision Rock, Papper and Scissors game")
+name = input("please enter your name \n")
+print (f'hello {name}, please display Rock, Papper and Scissors to camera')
 class Computer_Vision:
     def __init__(self,computer_wins=0,user_wins=0):
         self.computer_wins = 0
@@ -45,10 +47,10 @@ class Computer_Vision:
                    print ("computer score:",self.computer_wins)
                    print ("user score:", self.user_wins)
                    if self.computer_wins == 3:
-                       print ("computer has won 3 rounds. computer wins. Game over")
+                       print ("Computer has won 3 rounds. Computer wins. Game over")
                        return
                    elif self.user_wins == 3:
-                       print ("user has won 3 rounds. user wins. Game over")
+                       print (f'{name} has won 3 rounds. {name} wins. Game over')
                        return
             elif elapsed_time > 7:
                 print_winner = False
