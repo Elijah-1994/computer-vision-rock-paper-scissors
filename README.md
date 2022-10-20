@@ -42,18 +42,25 @@ Mileston 4 - Use the camera to play  Rock - Papper Scissors
 
 The first step was to code import  the cV2 module from the keras_model. This will allow the capture frame which will take in the user input to pop up during each run. The import numpy as np and random were also written in order for the code to run.
 
-play_game!
-A define play_game function was created to which will contain the main game loop. The main code from the model  was wrapped into this function and a get_prediction function was created that will return the output from the model.
-
 get_prediction!
 The output of the model is a list of probabilities for each class (Rock,Papper,Scissors,Nothing). A list labelled choices which contained the four classes was created. in order to choose the highest probability the prediction was stored in a highest index varible which contained the np.argmax function. The will pick the highest probability and was stored in in a user_choice variable. As each class corresponds to the corresponding value (e.g 0 - Rock) the user_choice variable contains the choices list which is indexed based on the highest_index. This will convert high probablity into the corresponding class.
+![](Images/Milestone_4%20-%20get_prediction.PNG)
 
 
-
-def get_computer_choice!
+get_computer_choice!
 
 the get_computer_choice function was created to return the random computer choice using the choices variable. The computer choice variable is cantains the random.choice function with an index between [0:3]. This is to ensure the computer choice does not choose "Nothing" in the choices list.
+![](Images/Milestone_4%20-%20get_computer_choice.PNG)
+
+get_winner!
+
+the output from the get_prediction and get_computer_choice were returned and stored as user_choice and computer_choice variebles respectively and are passed as arguments within the parameter of the get_winner function. The get_winner function contains if,elif,else statements which descides the winner based classic Rock,Papper,Scissors. 
+
+play_game!
+A define play_game function was created to which will contain the main game loop. The main code from the model  was wrapped into this function and the corresponding functions mentioned above are called in the play_game function. Since the main code from the model is within a while loop the script reads the input from the camera and then compares it with the computer's choice without stopping. Therefore the time.time() function was stored within a  start_time variable which placed outside of the game while loop. a current time variable  which also  the time.time() function was placed within the game loop below the main code from the model. An elapsed time variable was created which is the difference between the start_time and current time. This allows for a countdown before the get_prediction function is called. A series of if,elif statements were created to ensure the the get_prediction and get_computer choise function is called after the countdown of 5 seconds. then between 5 and 7 seconds the get_winner function is called. After  7 seconds the start_variable is called again which resets the countdown. A series of true/false flages are placed within the code of the play_game function to ensure only one prediction is  sotred per itteration.
 
 
-You need to pick the class with the highest probability. So, for example, assuming you trained the model in this order: "Rock", "Paper", "Scissors", and "Nothing",
-first step was to create a get_prediction function in order to capture the prediction 
+
+
+Class 
+
