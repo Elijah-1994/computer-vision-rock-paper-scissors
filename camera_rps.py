@@ -1,41 +1,87 @@
+import cv2
+from keras.models import load_model
+import numpy as np
 import random
+import time
 
-def play():
-	Computer = get_computer_choice(['Rock','Papper','Scissors'])
-	User = get_user_choice()
-	get_winner(Computer,User)
-	
+model = load_model('keras_model.h5')
+cap = cv2.VideoCapture(0)
+data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+choices = ["Rock","Papper","Scissors","nothing"]
 
-def get_computer_choice(computer):
-	return random.choice(computer)
-	
+class Computer_Vision:
+    def __init__(self,computer_wins=0,user_wins=0):
+        self.computer_wins = 0
+        self.user_wins = 0
 
-def get_user_choice ():
-	while True:
-		choice = input('please enter Rock, Papper or Scissors')
-		if choice == 'Rock':
-			return choice
-		elif choice  == 'Papper':
-			return choice 
-		elif choice == 'Scissors':
-			return choice		
-		else:
-			print('please enter Rock, Papper or Scissiors')
+    def play_game(self):
+        start_time = time.time()
+        print_winner = False
+        while True:
+            ret, frame = cap.read()
+            resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)
+            image_np = np.array(resized_frame)
+            normalized_image = (image_np.astype(np.float32) / 127.0) - 1 # Normalize the image
+            data[0] = normalized_image
+            cv2.imshow('frame', frame)
+            if cv2.waitKey(1) & 0xFF == ord('q'):
+                break
+            current_time = time.time()
+            elapsed_time = current_time - start_time
+            if elapsed_time > 4.9 and  elapsed_time < 5:
+                user_choice = self.get_user_prediction()
+                print (f'you chose {user_choice}')
+                computer_choice = self.get_computer_choice()
+            elif elapsed_time > 5 and elapsed_time < 7:
+                if print_winner is False:
+                   winner = self.get_winner(computer_choice,user_choice)
+                   print (winner)
+                   print ("get ready for the next round. Please display Rock, Papper or Scissors to the camera.")
+                   if winner == 'Computer wins':
+                       self.computer_wins += 1
+                   elif winner == 'user wins':
+                       self.user_wins +=1
+                   print_winner = True
+                   print ("computer score:",self.computer_wins)
+                   print ("user score:", self.user_wins)
+                   if self.computer_wins == 3:
+                       print ("computer has won 3 rounds. computer wins. Game over")
+                       return
+                   elif self.user_wins == 3:
+                       print ("user has won 3 rounds. user wins. Game over")
+                       return
+            elif elapsed_time > 7:
+                print_winner = False
+                start_time = time.time()
 
-def get_winner(Computer_choice,User_choice):
-	if Computer_choice =='Rock' and User_choice == 'Scissors':
-		print ('Computer wins')
-	elif Computer_choice=='Rock' and User_choice == 'Papper':
-		print ('User wins')
-	elif Computer_choice =='Scissors' and User_choice == 'Rock':
-		print ('User wins')
-	elif Computer_choice =='Scissors' and User_choice == 'Papper':
-		print ('Computer wins')
-	elif Computer_choice =='Papper' and User_choice == 'Rock':
-		print ('Computer wins')
-	elif Computer_choice =='Papper' and User_choice == 'Scissors':
-		print ('User wins')
-	else:
-		print (' It is a draw!')
+    def get_user_prediction(self):
+        prediction = model.predict(data)
+        highest_index = np.argmax(prediction[0])
+        user_choice = choices[highest_index]
+        return user_choice
 
-play()
+    def get_computer_choice(self):
+        computer_choice = random.choice(choices[0:3])
+        return computer_choice
+
+    def get_winner(self,computer_choice,user_choice):
+        if user_choice == "nothing":
+                return("please put your hand to the camera")
+        elif user_choice == computer_choice:
+                return("its a draw")
+        elif (computer_choice =='Rock' and user_choice == 'Scissors') or \
+            (computer_choice =='Scissors' and user_choice == 'Papper') or \
+            (computer_choice =='Papper' and user_choice == 'Rock'):
+                return ('Computer wins')
+        else:
+            return ('user wins')
+def game_loop():
+        game =Computer_Vision(computer_wins=0,user_wins=0)
+        game.play_game()
+
+game_loop()
+
+# After the loop release the cap object
+cap.release()
+# Destroy all the windows
+cv2.destroyAllWindows()

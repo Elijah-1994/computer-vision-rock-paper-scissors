@@ -7,4 +7,4 @@ Milstone 1 - create the computer vision system
 I went onto Teachable-Machine to create model. This consisted of creating four classes wich are rock,paper,scicors and nothing. for each class I took roughly 300 images to represent each class. for the nothing class I took photos of myself.
 
 Once I took all the images in each class I click build model and downloaded the model from the "Tensorflow" tab. the model is labbeled keras_model.h5 and contains a labels.txt file which contains the created classess.
- 
+

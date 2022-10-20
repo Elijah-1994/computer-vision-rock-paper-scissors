@@ -4,11 +4,9 @@ def play():
 	Computer = get_computer_choice(['Rock','Papper','Scissors'])
 	User = get_user_choice()
 	get_winner(Computer,User)
-	
 
 def get_computer_choice(computer):
 	return random.choice(computer)
-	
 
 def get_user_choice ():
 	while True:
@@ -16,10 +14,9 @@ def get_user_choice ():
 		if choice == 'Rock':
 			return choice
 		elif choice  == 'Papper':
-			return choice 
+			return choice
 		elif choice == 'Scissors':
-			return choice		
-		else:
+			return choice
 			print('please enter Rock, Papper or Scissiors')
 
 def get_winner(Computer_choice,User_choice):
