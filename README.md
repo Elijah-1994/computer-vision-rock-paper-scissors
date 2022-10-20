@@ -37,3 +37,23 @@ A get_winner function was written which will contain if-elif-else statements to 
 ![](Images/Milestone_3%20-%20Get_winner.PNG)
 
 A play()  function was written which contains the get_user_choice, get_computer_choice and get_winner function.
+
+Mileston 4 - Use the camera to play  Rock - Papper Scissors
+
+The first step was to code import  the cV2 module from the keras_model. This will allow the capture frame which will take in the user input to pop up during each run. The import numpy as np and random were also written in order for the code to run.
+
+play_game!
+A define play_game function was created to which will contain the main game loop. The main code from the model  was wrapped into this function and a get_prediction function was created that will return the output from the model.
+
+get_prediction!
+The output of the model is a list of probabilities for each class (Rock,Papper,Scissors,Nothing). A list labelled choices which contained the four classes was created. in order to choose the highest probability the prediction was stored in a highest index varible which contained the np.argmax function. The will pick the highest probability and was stored in in a user_choice variable. As each class corresponds to the corresponding value (e.g 0 - Rock) the user_choice variable contains the choices list which is indexed based on the highest_index. This will convert high probablity into the corresponding class.
+
+
+
+def get_computer_choice!
+
+the get_computer_choice function was created to return the random computer choice using the choices variable. The computer choice variable is cantains the random.choice function with an index between [0:3]. This is to ensure the computer choice does not choose "Nothing" in the choices list.
+
+
+You need to pick the class with the highest probability. So, for example, assuming you trained the model in this order: "Rock", "Paper", "Scissors", and "Nothing",
+first step was to create a get_prediction function in order to capture the prediction 
