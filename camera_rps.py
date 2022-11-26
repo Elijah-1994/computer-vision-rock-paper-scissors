@@ -16,7 +16,7 @@ class Computer_Vision:
         
         Attributes:
             self.computer_wins = initialises and updates the computer score.
-            self.user_wins = initialises and updates the user score.
+            self.user_wins = initialises and updates the user score
 
     '''
     def __init__(self,computer_wins=0,user_wins=0):
