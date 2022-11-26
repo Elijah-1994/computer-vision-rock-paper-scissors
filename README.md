@@ -1,44 +1,82 @@
-# computer-vision-rock-paper-scissors
+## Computer Vision Rock-Paper-Scissors
+&nbsp;
 
-This file contains a project called computer vision rock paper scissors where the aim is create a rock-paper scissors games which will compare the user input with the computers choice. The computers choice was developed by creating a computer vision system model on teachable-machines.
+The aim of this project is to use keras modelling and python methods
+to create the classic rock paper scissors game. Keras modelling is used to define the user input.
 
-Milstone 1 - Create the computer vision system
+&nbsp;
 
-Teachable-Machine was used to creat the model. This consisted of creating four classes which represent Rock,Paper,Scissors and Nothing. for each class I took roughly 1000 images to build the model.
+## Milestone 1 - Create the computer vision system 
+&nbsp;
 
-Once all the images were taken the model was trained and downloaded from the "Tensorflow" tab. the model is labbeled as "keras_model.h5" and contains a "labels.txt" file which contains the classes with the corresponding index.
+The first step is to go onto [Teachable-Machine](https://teachablemachine.withgoogle.com/) to create the model. This consisted of creating four classes which represent Rock,Paper,Scissors and Nothing. I placed my hand to the camera to represent the first three classes and for nothing the camera was placed to the wall. For each class roughly 1000 images were taken to build the model.
+
+Once all the images were taken the model was trained and downloaded from the "Tensorflow" tab. the model is labeled as "keras_model.h5" and contains a "labels.txt" file which contains the classes with the corresponding index. The model is used to take in the user input.
 
 ![](Images/Milestone_1.PNG)
+*Figure 1 - Training model*
 
-Milstone 2 -Setting up the virtual environment
+&nbsp;
+## Milestone 2 - Setting up the virtual environment
+&nbsp;
 
-In order to run the model a virtual environment with the correct installed libaries needed to be set up. The required libaries were opencv-python, tensorflow and ipykernel.
+In order to run the model a virtual environment with the correct installed libaries needs to be set up. The required libraries installed are opencv-python, tensorflow and ipykernel.
 
-The conda create -n command was inputted into the bash terminal on VSCode to create the virtual environment and , conda pip install(pip install) commands were inputted to install the required libraries and its depedencies in the virtual environment.
+The conda create -n command is inputted into the bash terminal on VSCode to create the virtual environment and , conda pip install(pip install) commands are inputted to install the required libraries and its dependencies in the virtual environment.
 
-pip list > requirments.txt and conda env export > env.yaml commands were inputted into the bash terminal to copy over the required libaries and dependencies. These file enables any other user that wants to use your computer to easily install these exact dependencies.
+pip list > requirements.txt and conda env export > env.yaml commands are inputted into the bash terminal to copy over the required libraries and dependencies. These file enables any other user to run the script on there computer but installing the dependencies.
 
-Milestone 3 - Create a Rock-Papper-Scissors game
+In order to check if the virtual environment is correctly installed the script which contains the  main code for the model was run and worked fine.
 
-The object of this Milestone is to create a python script that will simulate a Rock-Papper-Scissors game that will ask for a user input and then compare the user input against the computers choice to show the winner.
+&nbsp;
 
-The first step was to write the import random module to pick a random option between rock, paper, and scissors and the input function to get the user's choice.
+## Milestone 3 - Create a Rock-Paper-Scissors game
 
-A get_user choice functions was written which will take in the users choice. The user choice input  was placed in a while loop which asks the user to enter either Rock,Papper or Scissors. If the user enters one of these options the users choice will be returned and stored as a string variable. The while loop will continue to run until the user input is correct.
+&nbsp;
+
+The object of this Milestone is to create a python script that will simulate a Rock-Paper-Scissors game that will ask for a user input and then compare the user input against the computers choice to show the winner.
+
+__ask_user_input function__
+&nbsp;
+
+The first step is to create a list which contains the options between rock,paper and scissors and the use the import random module to pick a random option in the list.
+
+A get_user choice functions is written which will take in the users choice. The user choice input is placed in a while loop which asks the user to enter either Rock,Paper or Scissors. If the user enters one of these options the users choice will be returned and stored as a string variable. The while loop will continue to run until the user input is correct.
 
 ![](Images/Milestone_3%20-%20User_Input.PNG)
+*Figure 2 - get_user_choice function*
 
-A get_computer_choice function was written which will pick a random option from a list which contains strings called Rock,Paper,Scissors and return a choice and store as a string variable.
+&nbsp;
+
+__ask_computer_input function__
+
+&nbsp;
+A get_computer_choice function was written which will pick a random option from a list which contains strings labelled Rock,Paper,Scissors and return a choice and store as a string variable.
 
 ![](Images/Milestone_3%20-%20computer_choice.PNG)
 
-A get_winner function was written which will contain if-elif-else statements to descide the winner between the user and winner based on the classic rules of rock,paper,scissors. The arguments passed through the parameters of the get_winner function are the variables stored from the get_user_choice function and get_computer_choice function.
+*Figure 3 - get_computer_choice function*
 
+&nbsp;
+
+__get winner function__
+
+A get_winner function was written which will contain if-elif-else statements to decide the winner between the user and winner based on the classic rules of rock,paper,scissors. The arguments passed through the parameters of the get_winner function are the variables stored from the get_user_choice function and get_computer_choice function.
+
+&nbsp;
 ![](Images/Milestone_3%20-%20Get_winner.PNG)
+*Figure 4 - get_winner function*
 
-A play()  function was written which contains the get_user_choice, get_computer_choice and get_winner function.
+&nbsp;
 
-Mileston 4 - Use the camera to play  Rock - Papper Scissors
+__play function__
+
+In order to make the script more streamlined and efficient the &ensp; __play function__&ensp;  is coded and encapsulates the &ensp; __get_user_choice function__&ensp;  ,&ensp; __get_computer_choice function__&ensp;  and &ensp;__get_winner function__&ensp;.
+
+
+## Milestone 4 - Use the camera to play  Rock - Paper Scissors
+
+&nbsp;
 
 The first step was to code import  the cV2 module from the keras_model. This will allow the capture frame which will take in the user input to pop up during each run. The import numpy as np and random were also written in order for the code to run.
 
