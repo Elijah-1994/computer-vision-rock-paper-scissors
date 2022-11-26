@@ -96,27 +96,34 @@ the &ensp;__get_computer_choice method__&ensp; returns the random computer choic
 &nbsp;
 
 ![](Images/Milestone_4%20-%20get_computer_choice.PNG)
+
 *Figure 6 - get_computer_choice method*
 
 __get_winner method__
 
 the output from the &ensp;__get_prediction method__&ensp; and &ensp;__get_computer_choice method__&ensp; are returned and stored as user_choice and computer_choice variables respectively and are passed as arguments within the parameter of the get_winner method. The get_winner function contains if,elif,else statements which decide the winner based on the classic Rock,Paper,Scissors rules 
 
-play_game!
+__play_game method__
 
-A define play_game function was created to which will contain the main game loop. The main code from the model  was wrapped into this function and the corresponding functions mentioned above are called in the play_game function. Since the main code from the model is within a while loop the script reads the input from the camera and then compares it with the computer's choice without stopping. Therefore the time.time() function was stored within a  start_time variable which placed outside of the game while loop. a current time variable  which also  the time.time() function was placed within the game loop below the main code from the model. An elapsed time variable was created which is the difference between the start_time and current time. This allows for a countdown before the get_prediction function is called. A series of if,elif statements were created to ensure the the get_prediction and get_computer choise function is called after the countdown of 5 seconds. then between 5 and 7 seconds the get_winner function is called. After  7 seconds the start_variable is called again which resets the countdown. A series of true/false flages are placed within the code of the play_game function to ensure only one prediction is  sotred per itteration.
+In order to run the main game loop A define play_game function was created amd the main code encapsulated into this methods and the corresponding functions mentioned above are called in the play_game function. Since the main code from the model is within a while loop the script reads the input from the camera and then compares it with the computer's choice without stopping. Therefore the &ensp;__time.time() function__&ensp; was stored within a  start_time variable and placed outside of the __play_game__ while loop. The  __time.time() function__ is to used to calculate the current function and placed in a variable  placed within the while loop. An elapsed time variable was created which is the difference between the start_time and current time. This allows for a countdown before the get_prediction function is called. A series of if,elif statements were created to ensure the the &ensp;__get_prediction method__&ensp; and the &ensp;__get_computer_choice method__&ensp; is called after the countdown of 5 seconds. then between 5 and 7 seconds the &ensp;__get_winner method__&ensp; is called. After  7 seconds the start_variable is called  which resets the countdown. A series of true/false flags are placed within the code of the &ensp;__play_game method__&ensp; to ensure only one user prediction is store per iteration.
 ![](Images/Milestone_4%20-%20play_game_1.PNG)
 ![](Images/Milestone_4%20-%20play_game_2.PNG)
 ![](Images/Milestone_4%20-%20play_game_3.PNG)
+*Figure 7 - play_game method*
 
+ __Class computer vision__
 
-Class Computer_Vision!
+&nbsp;
 
-In order to repeat the game until the user or computer wins 3 games, each win would need to be stored and itterated within a variable. In order to do this the functions for the game were wrapped in a class Computer_Vision. The def __init__ method was created in order to initialize the two parameters which are computer_wins and user_wins. The parameters store and itterate the user and computer score. A series of if,elif statments were created in the play_game function which control the user and computer points. If the return variable from the get_winner function is 'Computer wins' then the computer_wins variable is increased by 1 and vise versa for the user wins. An additional set of if,elif statments were created in the play_game function which return a statement on who wins the game if the computer_wins or user_wins reaches 3 points. This stops the while loop in the play_game function and ends the game.
+In order to repeat the game until the user or computer wins 3 games, each win would need to be stored and iterated within a variable. In order to do this the methods for the game were wrapped in a class called Computer_Vision. The def &ensp;__init__&ensp; method was created in order to initialize the two parameters which are computer_wins and user_wins. The parameters initialise and  iterate the user and computer score. A series of if,elif statements were created in the play_game function which control the user and computer points. If the return variable from the &ensp;__get_winner method__&ensp; is 'Computer wins' then the computer_wins variable is increased by 1 and vise versa for the user wins. An additional set of if,elif statments were created in the &ensp;__play_game method__&ensp; which return a  print statement on who wins the game if the computer_wins or user_wins reaches 3 points. Once 3 points is reach the while loop breaks amd the game ends.
 
-Code improvements
+&nbsp;
 
-in order to make the code readibility the class to initialize the class and function play_game call are wrapped in a def game loop function.
+__Code improvements__
 
-To make the script more usear friendly a additonal lines are written at the start of the code which explains to the user how to play the game. The user score and user score are also displayed throughout the game the so the user is aware. hello
+&nbsp;
+
+in order to make the script more readable the methods in the class are encapsulated within the  __game_loop method__ .
+
+To make the script more user friendly a additional lines are written at the start of the code which explains to the user how to play the game. The user score and user score are also displayed throughout the game the so the user is aware. 
 
