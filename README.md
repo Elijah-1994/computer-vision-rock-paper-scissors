@@ -78,21 +78,29 @@ In order to make the script more streamlined and efficient the &ensp; __play fun
 
 &nbsp;
 
-The first step was to code import  the cV2 module from the keras_model. This will allow the capture frame which will take in the user input to pop up during each run. The import numpy as np and random were also written in order for the code to run.
+In order for the camera to work and take in the user inputs, the first step is to import  the &ensp;__cV2 module__&ensp; from the keras_model. This will allow the capture frame which will take in the user input to pop up during each run. The other required imports for the script are  &ensp;__numpy as np__&ensp; and &ensp;__random__&ensp;.
 
-get_prediction!
-The output of the model is a list of probabilities for each class (Rock,Papper,Scissors,Nothing). A list labelled choices which contained the four classes was created. in order to choose the highest probability the prediction was stored in a highest index varible which contained the np.argmax function. The will pick the highest probability and was stored in in a user_choice variable. As each class corresponds to the corresponding value (e.g 0 - Rock) the user_choice variable contains the choices list which is indexed based on the highest_index. This will convert high probablity into the corresponding class.
+__get_prediction method__
+&nbsp;
+The output of the keras model is a list of probabilities for each class (Rock,Papper,Scissors,Nothing). A list labelled choices which contains the four classes was created. in order for the highest probability to be chosen, the prediction is stored in a highest index variable which contained the np.argmax function. The highest probabilityis then picked and was stored in a user_choice variable. As each class corresponds to the corresponding value (e.g 0 - Rock) and he user_choice variable contains the choices list which is indexed based on the highest_index. This will convert high probability into the corresponding class.
+&nbsp;
 ![](Images/Milestone_4%20-%20get_prediction.PNG)
+*Figure 5 - get_prediction method*
 
+&nbsp;
 
-get_computer_choice!
+__get_computer_choice method__
 
-the get_computer_choice function was created to return the random computer choice using the choices variable. The computer choice variable is cantains the random.choice function with an index between [0:3]. This is to ensure the computer choice does not choose "Nothing" in the choices list.
+the &ensp;__get_computer_choice method__&ensp; returns the random computer choice using the &ensp;__random.choice function__&ensp; and is indexed between [0:3]. This is to ensure the computer choice does not choose "Nothing" in the choices list.
+
+&nbsp;
+
 ![](Images/Milestone_4%20-%20get_computer_choice.PNG)
+*Figure 6 - get_computer_choice method*
 
-get_winner!
+__get_winner method__
 
-the output from the get_prediction and get_computer_choice were returned and stored as user_choice and computer_choice variebles respectively and are passed as arguments within the parameter of the get_winner function. The get_winner function contains if,elif,else statements which descides the winner based classic Rock,Papper,Scissors. 
+the output from the &ensp;__get_prediction method__&ensp; and &ensp;__get_computer_choice method__&ensp; are returned and stored as user_choice and computer_choice variables respectively and are passed as arguments within the parameter of the get_winner method. The get_winner function contains if,elif,else statements which decide the winner based on the classic Rock,Paper,Scissors rules 
 
 play_game!
 
