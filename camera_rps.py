@@ -15,7 +15,7 @@ class Computer_Vision:
         This class represents the process of using keras modelling and python methods to create the classic rock paper scissors game.
         
         Attributes:
-            self.computer_wins = initialises and updates the computer score.
+            self.computer_wins = initialises and updates the computer score
             self.user_wins = initialises and updates the user score.
 
     '''
