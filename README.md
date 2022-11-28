@@ -82,7 +82,7 @@ In order for the camera to work and take in the user inputs, the first step is t
 
 __get_prediction method__
 &nbsp;
-The output of the keras model is a list of probabilities for each class (Rock,Papper,Scissors,Nothing). A list labelled choices which contains the four classes was created. in order for the highest probability to be chosen, the prediction is stored in a highest index variable which contained the np.argmax function. The highest probabilityis then picked and was stored in a user_choice variable. As each class corresponds to the corresponding value (e.g 0 - Rock) and he user_choice variable contains the choices list which is indexed based on the highest_index. This will convert high probability into the corresponding class.
+The output of the keras model is a list of probabilities for each class (Rock,Paper,Scissors,Nothing). A list labelled choices which contains the four classes was created. in order for the highest probability to be chosen, the prediction is stored in a highest index variable which contained the np.argmax function. The highest probability is then picked and was stored in a user_choice variable. As each class corresponds to the corresponding value (e.g 0 - Rock) and he user_choice variable contains the choices list which is indexed based on the highest_index. This will convert high probability into the corresponding class.
 &nbsp;
 ![](Images/Milestone_4%20-%20get_prediction.PNG)
 *Figure 5 - get_prediction method*
