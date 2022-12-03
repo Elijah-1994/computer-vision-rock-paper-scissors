@@ -44,6 +44,7 @@ The first step is to create a list which contains the options between rock,paper
 A get_user choice functions is written which will take in the users choice. The user choice input is placed in a while loop which asks the user to enter either Rock,Paper or Scissors. If the user enters one of these options the users choice will be returned and stored as a string variable. The while loop will continue to run until the user input is correct.
 
 ![](Images/Milestone_3%20-%20User_Input.PNG)
+
 *Figure 2 - get_user_choice function*
 
 &nbsp;
@@ -65,6 +66,7 @@ A get_winner function was written which will contain if-elif-else statements to 
 
 &nbsp;
 ![](Images/Milestone_3%20-%20Get_winner.PNG)
+
 *Figure 4 - get_winner function*
 
 &nbsp;
@@ -84,7 +86,9 @@ __get_prediction method__
 &nbsp;
 The output of the keras model is a list of probabilities for each class (Rock,Paper,Scissors,Nothing). A list labelled choices which contains the four classes was created. in order for the highest probability to be chosen, the prediction is stored in a highest index variable which contained the np.argmax function. The highest probability is then picked and was stored in a user_choice variable. As each class corresponds to the corresponding value (e.g 0 - Rock) and he user_choice variable contains the choices list which is indexed based on the highest_index. This will convert high probability into the corresponding class.
 &nbsp;
+
 ![](Images/Milestone_4%20-%20get_prediction.PNG)
+
 *Figure 5 - get_prediction method*
 
 &nbsp;
@@ -106,10 +110,16 @@ the output from the &ensp;__get_prediction method__&ensp; and &ensp;__get_comput
 __play_game method__
 
 In order to run the main game loop A define play_game function was created amd the main code encapsulated into this methods and the corresponding functions mentioned above are called in the play_game function. Since the main code from the model is within a while loop the script reads the input from the camera and then compares it with the computer's choice without stopping. Therefore the &ensp;__time.time() function__&ensp; was stored within a  start_time variable and placed outside of the __play_game__ while loop. The  __time.time() function__ is to used to calculate the current function and placed in a variable  placed within the while loop. An elapsed time variable was created which is the difference between the start_time and current time. This allows for a countdown before the get_prediction function is called. A series of if,elif statements were created to ensure the the &ensp;__get_prediction method__&ensp; and the &ensp;__get_computer_choice method__&ensp; is called after the countdown of 5 seconds. then between 5 and 7 seconds the &ensp;__get_winner method__&ensp; is called. After  7 seconds the start_variable is called  which resets the countdown. A series of true/false flags are placed within the code of the &ensp;__play_game method__&ensp; to ensure only one user prediction is store per iteration.
+
+&nbsp;
+
 ![](Images/Milestone_4%20-%20play_game_1.PNG)
 ![](Images/Milestone_4%20-%20play_game_2.PNG)
 ![](Images/Milestone_4%20-%20play_game_3.PNG)
+
 *Figure 7 - play_game method*
+
+&nbsp;
 
  __Class computer vision__
 
