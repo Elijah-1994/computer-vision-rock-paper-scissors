@@ -117,7 +117,7 @@ class Computer_Vision:
         if user_choice == "nothing":
                 return("Please put your hand to the camera.")
         elif user_choice == computer_choice:
-                return("It's a dra.")
+                return("Its a draw.")
         elif (computer_choice =='Rock' and user_choice == 'Scissors') or \
             (computer_choice =='Scissors' and user_choice == 'Paper') or \
             (computer_choice =='Paper' and user_choice == 'Rock'):
